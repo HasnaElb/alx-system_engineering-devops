@@ -1,1 +1,2 @@
-file -d -m school.mgc School.txt
+0 string SCHOOL School found
+!:mime text/School
