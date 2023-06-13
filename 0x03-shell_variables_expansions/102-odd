@@ -1,2 +1,2 @@
 #!/bin/bash
-nl -b a -n ln | grep -E '^[13579]'
+echo $l_line
