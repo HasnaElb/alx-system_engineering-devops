@@ -1,2 +1,2 @@
 #!/bin/bash
-past - - | cut -f1
+nl -b a -n ln | cut -f1
