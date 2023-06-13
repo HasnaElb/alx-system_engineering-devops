@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -c-1 | paste -s --delimeters=''
+awk '{printf "%s", substr($0, 1, 1)} END{printf "\n"}'
