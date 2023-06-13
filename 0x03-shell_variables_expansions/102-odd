@@ -1,2 +1,2 @@
 #!/bin/bash
-nl -b a -n ln | cut -f1
+nl -b a -n ln | grep -E '^[13579]'
