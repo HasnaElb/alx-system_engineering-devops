@@ -1,2 +1,2 @@
 #!/bin/bash
-echo a b c | cut -f 2- -d ' '
+cut -f 1 
