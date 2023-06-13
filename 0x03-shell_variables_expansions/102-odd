@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $l_line
+echo a b c | cut -f 2- -d ' '
