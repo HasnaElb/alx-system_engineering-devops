@@ -3,3 +3,4 @@
 Host *
 	PasswordAuthentification no
 	IdentityFile ~/.ssh/school
+	Hashauthorized_keys yes
