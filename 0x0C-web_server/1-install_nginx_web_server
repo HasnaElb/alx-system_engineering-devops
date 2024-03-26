@@ -2,5 +2,6 @@
 #installs nginx web server, listening on port 80; dummy index page
 apt-get -y update
 apt-get -y install nginx
-echo "Hello World!" > /var/www/html/index.html
+ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.nginx.html
 service nginx restart
