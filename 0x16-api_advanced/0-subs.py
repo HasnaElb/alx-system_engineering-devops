@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-
+import urllib.request
 import requests
+import json
 
 def number_of_subscribers(subreddit):
     # Define the URL for the subreddit
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
     #set a custom User-Agent to avoid Too Many Requests errors
     headers = {'User-Agent': 'MyRedditAPI/0.0.1'}
