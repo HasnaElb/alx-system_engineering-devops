@@ -1,24 +1,22 @@
 #!/usr/bin/python3
-import urllib.request
-import requests
-import json
+from requests import get
+
 
 def number_of_subscribers(subreddit):
-    # Define the URL for the subreddit
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+""" Queries Reddit API and returns number of subscribers (not active users)
+for a given subreddit.
 
-    #set a custom User-Agent to avoid Too Many Requests errors
-    headers = {'User-Agent': 'MyRedditAPI/0.0.1'}
+    Args:
+        subreddit (str): subreddit to query
 
-    # Make the request to the Reddit API
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    
-    # Check if the status code indicates a successful response
-    if response.status_code == 200:
-        # Parse the JSON response
-        data = response.json()
-        # Return the number of subscribers
-        return data.get("data", {}).get("subscribers", 0)
-    else:
-        # If the subreddit is invalid, return 0
-        return 0
+    Return:
+    number of current subscribers to `subreddit`, or 0 if `subreddit` is
+    invalid
+"""
+	response = get('https://www.reddit.com/r/{}/about.json'.format(subreddit),
+		headers={'User-Agent': 'MyRedditAPI-app0'})
+	#non-existent subreddits sometimes return 404
+	if response.status_code != 200:
+		return 0
+	# and sometimes return a dummy JSON dict with only 'Listing' key
+	return response.json().get('data').get('subscribers', 0)
