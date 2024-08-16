@@ -14,13 +14,14 @@ def top_ten(subreddit):
     for the given subreddit.
     If the subreddit is invalid, print None.
     """
-    
+
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {'User-Agent': 'MyRedditAPI/0.0.1'}
     params = {'limit': 10}
 
     try:
-        response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+        response = requests.get(url, headers=headers, params=params,
+        allow_redirects=False)
 
         if response.status_code == 200:
             data = response.json()
