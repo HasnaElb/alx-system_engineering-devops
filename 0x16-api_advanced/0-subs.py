@@ -14,7 +14,7 @@ def number_of_subscribers(subreddit):
 	or 0 if `subreddit` is invalid
 	"""
 	response = get('https://www.reddit.com/r/{}/about.json'.format(subreddit),
-		headers={'User-Agent': 'Hasna'})
+		headers={'User-Agent': 'u/Shot-Lion6754'})
 	#non-existent subreddits sometimes return 404
 	if response.status_code != 200:
 		return 0
