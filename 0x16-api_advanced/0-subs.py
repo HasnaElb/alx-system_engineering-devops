@@ -14,10 +14,10 @@ def number_of_subscribers(subreddit):
     If the subreddit is invalid, return 0.
     """
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {'User-Agent': 'My-User-Agent'}
-
+    headers = {'User-Agent': 'Hasna-app0'}
+    
     response = requests.get(url, headers=headers, allow_redirects=False)
-
+    
     if response.status_code == 200:
         data = response.json()
         return data.get("data", {}).get("subscribers", 0)
