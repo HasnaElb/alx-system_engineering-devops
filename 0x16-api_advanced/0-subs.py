@@ -3,18 +3,18 @@ from requests import get
 
 
 def number_of_subscribers(subreddit):
-""" Queries Reddit API and returns number of subscribers (not active users)
-for a given subreddit.
+	""" Queries Reddit API and returns number of subscribers
+	(not active users) for a given subreddit.
 
-    Args:
-        subreddit (str): subreddit to query
+	Args:
+	subreddit (str): subreddit to query
 
-    Return:
-    number of current subscribers to `subreddit`, or 0 if `subreddit` is
-    invalid
-"""
+	Return:
+	number of current subscribers to `subreddit`,
+	or 0 if `subreddit` is invalid
+	"""
 	response = get('https://www.reddit.com/r/{}/about.json'.format(subreddit),
-		headers={'User-Agent': 'MyRedditAPI-app0'})
+		headers={'User-Agent': 'Hasna'})
 	#non-existent subreddits sometimes return 404
 	if response.status_code != 200:
 		return 0
