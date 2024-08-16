@@ -14,7 +14,7 @@ def top_ten(subreddit):
         subreddit (str): subreddit to query
     """
     # adding request parameter `raw_json` deactivates default ampersand escape
-    url = 'https://www.reddit.com/dev/api/r/{}/hot.json?raw_json=1'
+    url = 'https://www.reddit.com/r/{}/hot.json?raw_json=1'
     response = get(url.format(subreddit),
                    headers={'User-Agent': 'Hasna-app1'})
     if response.status_code != 200:
