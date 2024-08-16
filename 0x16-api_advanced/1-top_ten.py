@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """ 0x16. API advanced, task 1. Top Ten
 """
+
+
 from requests import get
 
 
@@ -14,7 +16,7 @@ def top_ten(subreddit):
     # adding request parameter `raw_json` deactivates default ampersand escape
     url = 'https://www.reddit.com/r/{}/hot.json?raw_json=1'
     response = get(url.format(subreddit),
-                   headers={'User-Agent': 'hasna-app1'})
+                   headers={'User-Agent': 'Hasna-app1'})
     if response.status_code != 200:
         print(None)
         return
