@@ -19,8 +19,7 @@ def recurse(subreddit, hot_list=[]):
     limit = 100
     after = hot_list[-1].get('data').get('name', '') if len(hot_list) else ''
     # adding request parameter `raw_json` deactivates default ampersand escape
-    url = 'https://www.reddit.com/dev/api//r/{}/hot.json?raw_json=1&after
-={}&limit={}'
+    url = 'https://www.reddit.com/dev/api//r/{}/hot.json?raw_json=1&after={}'
     response = get(url.format(subreddit, after, limit),
                    headers={'User-Agent': 'Mozilla/5.0'})
     if response.status_code != 200:
