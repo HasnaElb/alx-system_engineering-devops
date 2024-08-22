@@ -1,0 +1,4 @@
+curl -X GET \"https://api.datadoghq.com/api/v1/dashboard" \
+-H "Content-Type: application/json" \
+-H "DD-API-KEY: <3d0b02ad161e5c369b3fdeafb19f6a4f>" \
+-H "DD-APPLICATION-KEY: <362ee99232824d535b73700b654a2e95edc4e656>"
