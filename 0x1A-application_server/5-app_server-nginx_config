@@ -16,6 +16,7 @@
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
+        add_header X-Served-By "$HOSTNAME";
         error_page 404 /404.html;
         rewrite ^/redirect_me/?.*$ https://www.youtube.com/watch?v=mTEros927Ow permanent;
 
@@ -46,11 +47,27 @@ server {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
                 try_files $uri $uri/ =404;
+                include proxy_params;
+                proxy_pass http://127.0.0.1:5003/2-hbnb;
+        }
+
+        location /static/ {
+                 root /home/ubuntu/AirBnB_clone_v4/web_dynamic/;
         }
 
         location = /airbnb-onepage/ {
                 include proxy_params;
                 proxy_pass http://0.0.0.0:5000;
+        }
+
+        location ~ ^/airbnb-dynamic/number_odd_or_even/(\d+)$ {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
+        }
+
+        location /api/ {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5002;
         }
 
         # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000

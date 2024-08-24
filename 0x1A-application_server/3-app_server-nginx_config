@@ -53,6 +53,11 @@ server {
                 proxy_pass http://0.0.0.0:5000;
         }
 
+        location ~ ^/airbnb-dynamic/number_odd_or_even/(\d+)$ {
+                 include proxy_params;
+                 proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
+        }
+
         # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
         #
         #location ~ \.php$ {
