@@ -7,7 +7,7 @@ from requests import get
 def number_of_subscribers(subreddit):
 	# Use .format() for string formatting,
 	response = get("https://www.reddit.com/r/{}/about.json".format(subreddit),
-		headers = {'User-Agent': 'my-subreddit-query/0.0.1'})
+		headers={'User-Agent': 'Hasna-app0'})
 
 	if response.status_code != 200:
 		return 0
