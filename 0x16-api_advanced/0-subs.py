@@ -6,7 +6,7 @@ from  requests import get
 
 def number_of_subscribers(subreddit):
     response = get('https://www.reddit.com/r/{}/about.json'.format(subreddit),
-                   headers={'User-Agent': 'MyRedditBot/1.0 (u/Shot-Hasna-app0)'})
+                   headers={'User-Agent': 'MyRedditBot/1.0'})
     # non-existent subreddits sometimes return 404
     if response.status_code != 200:
         return 0
