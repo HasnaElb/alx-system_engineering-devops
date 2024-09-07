@@ -16,7 +16,11 @@ def top_ten(subreddit):
     # adding request parameter `raw_json` deactivates default ampersand escape
     url = 'https://www.reddit.com/r/{}/hot.json?raw_json=1'
     response = get(url.format(subreddit),
+<<<<<<< HEAD
                    headers={'User-Agent': 'Hasna'})
+=======
+                   headers={'User-Agent': 'Mozilla/5.0'})
+>>>>>>> dfd54ec0444b6d2117a930561f68963f56bb04e8
     if response.status_code != 200:
         print(None)
         return

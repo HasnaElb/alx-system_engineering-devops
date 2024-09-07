@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
 
-import requests
+from requests import get
 
 
 def number_of_subscribers(subreddit):
+<<<<<<< HEAD
 	#define the URL for the subreddit API
 	url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
@@ -25,3 +26,17 @@ def number_of_subscribers(subreddit):
 	except requests.RequestException:
 		# In case of any other exceptions, return 0
 		return 0
+=======
+    """
+    Query Reddit API and return the number of subscribers for a given
+    subreddit.
+    If the subreddit is invalid, return 0.
+    """
+    response = get('https://www.reddit.com/r/{}/about.json'.format(subreddit),
+                   headers={'User-Agent': 'Mozilla/5.0'})
+    # non-existent subreddits sometimes return 404
+    if response.status_code != 200:
+        return 0
+    # and sometimes return a dummy JSON dict with only 'Listing' key
+    return response.json().get('data').get('subscribers', 0)
+>>>>>>> dfd54ec0444b6d2117a930561f68963f56bb04e8
